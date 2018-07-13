@@ -56,7 +56,7 @@ def process_message():
         logging.debug('SEND: {}'.format(message.__dict__))
         logging.debug('RESP: {}'.format(response))
 
-    return 'ok', 200
+    return '', 204
 
 
 if __name__ == '__main__':
