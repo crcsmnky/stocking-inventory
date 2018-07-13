@@ -25,7 +25,7 @@ def process_image():
 
     # deserialize the envelope into a dict
     envelope = json.loads(request.data.decode('utf-8'))
-    logging.debug(envelope)
+    logging.debug('ENVELOPE: {}'.format(envelope))
 
     # eventType must be OBJECT_FINALIZE
     # if envelope['message']['attributes']['eventType'] != 'OBJECT_FINALIZE':
@@ -67,9 +67,10 @@ def process_image():
         text_desc = ''.join(text.description.split())
 
         if text_desc == 'RESTOCKBANANAS':
+            logging.debug('RESTOCKBANANAS')
             cps_client.publish(cps_topic, bytes(text_desc))
 
-    return {}, 204
+    return '', 204
 
 
 if __name__ == '__main__':

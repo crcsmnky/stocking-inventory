@@ -9,6 +9,7 @@ from flask import Flask, current_app, request
 from google.cloud import pubsub
 from firebase_admin import messaging
 
+
 app = Flask(__name__)
 
 
@@ -30,6 +31,7 @@ def process_message():
 
     # deserialize the envelope into a dict
     envelope = json.loads(request.data.decode('utf-8'))
+    logging.debug('ENVELOPE: {}'.format(envelope))
 
     # base64 decode the 'data' element in the message
     data = base64.b64decode(envelope['message']['data'])
@@ -41,6 +43,8 @@ def process_message():
             headers={'Metadata-Flavor': 'Google'}
         )
         push_token = metadata.json()['attributes']['staff-app-token']
+
+        logging.debug('PUSH TOKEN: {}'.format(push_token))
 
         message = messaging.Message(
             data = {
