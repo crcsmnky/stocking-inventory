@@ -38,10 +38,10 @@ var messaging = firebase.messaging();
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
   // Customize notification here
-  var notificationTitle = 'Background Message Title';
+  var notificationTitle = 'Inventory Update';
   var notificationOptions = {
-    body: 'Background Message body.',
-    icon: '/firebase-logo.png'
+    body: 'Time to restock the bananas!',
+    icon: '/bananas.png'
   };
 
   return self.registration.showNotification(notificationTitle,
