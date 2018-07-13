@@ -1,0 +1,12 @@
+service: messaging
+
+runtime: python
+env: flex
+
+entrypoint: gunicorn -b :$PORT messaging:app
+
+env_variables:
+  PUBSUB_TOPIC: messaging
+  # $ md5 -s bananas
+  PUBSUB_VERIFICATION_TOKEN: ec121ff80513ae58ed478d5c5787075b
+  METADATA_SERVER: http://metadata.google.internal/computeMetadata/v1/project/

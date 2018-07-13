@@ -1,0 +1,13 @@
+service: inventory
+
+runtime: python
+env: flex
+
+entrypoint: gunicorn -b :$PORT inventory:app
+
+env_variables:
+  PUBSUB_TOPIC: inventory
+  MESSAGING_TOPIC: messaging
+
+  # $ md5 -s bananas
+  PUBSUB_VERIFICATION_TOKEN: ec121ff80513ae58ed478d5c5787075b
