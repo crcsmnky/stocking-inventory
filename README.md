@@ -32,7 +32,7 @@ inventory-service/app.yaml \
 messaging-service/app.yaml
 ```
 
-### Cloud Storage, Pub/Sub, App Engine
+### Cloud Storage and Cloud Pub/Sub
 
 Edit `setup.sh` with the following information:
 * Cloud Storage bucket name (`BUCKET_NAME`)
