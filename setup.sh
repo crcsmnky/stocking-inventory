@@ -110,7 +110,7 @@ if [[ -z $@ ]]; then
     exit 0
 fi
 
-case "$COMMAND" in
+case "$TYPE" in
     bucket )
         bucket
         ;;
