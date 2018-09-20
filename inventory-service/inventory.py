@@ -2,9 +2,13 @@ import json
 import logging
 import base64
 import os
+import sys
 
 from flask import Flask, current_app, request
 from google.cloud import pubsub, vision
+
+
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 
 app = Flask(__name__)

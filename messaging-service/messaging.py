@@ -4,10 +4,14 @@ import base64
 import os
 import firebase_admin
 import requests
+import sys
 
 from flask import Flask, current_app, request
 from google.cloud import pubsub
 from firebase_admin import messaging
+
+
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 
 app = Flask(__name__)
