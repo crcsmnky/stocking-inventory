@@ -21,6 +21,11 @@ In [this session](https://cloud.withgoogle.com/next18/sf/sessions/session/155904
 - `Messaging` service uses [Firebase](https://firebase.google.com) Admin API to send device notification
 - Firebase delivers push notification to `Staff App`
 
+## Requirements
+* [Google Cloud](https://cloud.google.com) project
+* Install and setup [gcloud](https://cloud.google.com/sdk)
+* Install and setup [Firebase SDK](https://firebase.google.com/docs/web/setup)
+
 ## Deploying
 
 ### App Engine
@@ -43,6 +48,9 @@ $ ./setup.sh all up
 ```
 
 ### Firebase
+
+In the Firebase console for your project, navigate to **Project Settings** > **Cloud Messaging** and create a new **Web Push certificate**. Next copy the **Key pair** and paste it into `messaging.usePublicVapidKey()` in [staff-app/index.html](https://github.com/crcsmnky/stocking-inventory/blob/master/staff-app/index.html#L89).
+
 ```
 $ cd staff-app
 $ firebase deploy
@@ -53,8 +61,3 @@ Once the Firebase app has been deployed, navigate to it and generate a new push 
 ```
 $ ./update-metadata.sh [TOKEN]
 ```
-
-## Requirements
-* [Google Cloud](https://cloud.google.com) project
-* Install and setup [gcloud](https://cloud.google.com/sdk)
-* Install and setup [Firebase SDK](https://firebase.google.com/docs/web/setup)
